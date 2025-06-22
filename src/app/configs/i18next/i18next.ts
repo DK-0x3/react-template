@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+// eslint-disable-next-line import/no-named-as-default-member
 i18n
 	.use(HttpBackend) // Для загрузки переводов через HTTP
 	.use(LanguageDetector) // Для определения языка браузера

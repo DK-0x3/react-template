@@ -1,5 +1,6 @@
+// eslint-disable-next-line import/named
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ISessionState } from '../types/ISessionState';
+import { ISessionState } from './types/ISessionState';
 
 const initialState: ISessionState = {
 	sessionId: null,

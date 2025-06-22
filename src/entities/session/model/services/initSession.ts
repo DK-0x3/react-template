@@ -1,7 +1,7 @@
 import { ISessionState } from '../types/ISessionState';
-import { setSessionData } from '../slice/sessionSlice';
-import {StorageKeyType} from "../../../../shared/types/LocalStorageKey.ts";
-import {AppThunk} from "../../../store.ts";
+import { setSessionData } from '../sessionSlice';
+import { StorageKeyType } from '../../../../shared/types/LocalStorageKey';
+import { AppThunk } from '../../../../app/store/store';
 
 /**
  * Инициализтрует сессию каждый раз при обновлении страницы.

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import {AppDispatch, RootState} from "../store.ts";
+import { AppDispatch, RootState } from '../../../app/store/store';
 
 // Типизированный AsyncThunkConfig
 export interface IThunkConfig {
