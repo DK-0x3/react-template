@@ -26,3 +26,5 @@
 ---
 
 ### Node.js - `v22.XX.X`
+
+<img width="1697" height="1361" alt="image" src="https://github.com/user-attachments/assets/23593fef-c245-4b8a-a78d-39c12f0be57e" />
