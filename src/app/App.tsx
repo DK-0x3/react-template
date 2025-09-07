@@ -1,9 +1,9 @@
-import './styles/App.css';
+import styles from './styles/App.module.scss';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
-import { ModalProvider } from '../widgets/modal/ui/ModalContext';
+import { ModalProvider } from '../widgets/modal/model/ModalContext';
 import { Modal } from '../widgets/modal/ui/Modal';
-import AppRouter from './rout/AppRouter';
+import AppRouter from './providers/router/AppRouter';
 import { BrowserRouter } from 'react-router-dom';
 import './styles/globalVariables.scss';
 
@@ -14,7 +14,7 @@ const App = () => {
 		<QueryClientProvider client={queryClient}>
 			<ModalProvider>
 				<BrowserRouter>
-					<div className="App">
+					<div className={styles.App}>
 						<AppRouter/>
 						<Modal/>
 					</div>

@@ -1,4 +1,4 @@
-.InputApp {
+.Input {
   width: 100%;
   border: none;
   border-radius: 4px;
@@ -9,10 +9,10 @@
   padding: 10px 5px 10px 5px;
 }
 
-.InputApp::placeholder {
+.Input::placeholder {
   color: var(--gray-light);
 }
 
-.InputApp:focus::placeholder {
+.Input:focus::placeholder {
   color: transparent;
 }

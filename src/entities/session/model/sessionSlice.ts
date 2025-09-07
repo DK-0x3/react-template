@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/named
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ISessionState } from './types/ISessionState';
+import { SessionState } from './types/SessionState';
 
-const initialState: ISessionState = {
+const initialState: SessionState = {
 	sessionId: null,
 	lastActivity: Date.now(),
 };
@@ -11,7 +11,7 @@ const sessionSlice = createSlice({
 	name: 'session',
 	initialState,
 	reducers: {
-		setSessionData: (state, action: PayloadAction<ISessionState>) => {
+		setSessionData: (state, action: PayloadAction<SessionState>) => {
 			state.sessionId = action.payload.sessionId;
 			state.lastActivity = action.payload.lastActivity;
 		},

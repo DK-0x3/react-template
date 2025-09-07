@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-interface IModalContextType {
+interface ModalContextType {
 	isOpen: boolean;
 	openModal: (component: ReactNode) => void;
 	closeModal: () => void;
 	component: ReactNode | null;
 }
 
-const ModalContext = createContext<IModalContextType | undefined>(undefined);
+const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,7 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 /**
  * Хук для доступа к контексту модалки
  */
-export const useModal = (): IModalContextType => {
+export const useModal = (): ModalContextType => {
 	const context = useContext(ModalContext);
 	if (!context) {
 		throw new Error('useModal must be used within a ModalProvider');

@@ -1,14 +1,15 @@
-import './InputApp.scss';
+import styles from './Input.module.scss';
 import { FC } from 'react';
+import classNames from 'classnames';
 
-interface IInputAppProps {
+interface InputProps {
     className?: string;
     placeholder?: string;
     type?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const InputApp: FC<IInputAppProps> = (props: IInputAppProps) => {
+export const Input: FC<InputProps> = (props: InputProps) => {
 	const {
 		placeholder,
 		className,
@@ -19,7 +20,7 @@ export const InputApp: FC<IInputAppProps> = (props: IInputAppProps) => {
 
 	return (
 		<input {...otherProps}
-			className={`InputApp ${className}`}
+			className={classNames(styles.Input)}
 			type={type}
 			onChange={onChange}
 			placeholder={placeholder}

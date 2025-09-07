@@ -1,7 +1,13 @@
 {
   "Короткий язык": "EN",
-  "Нажмите на логотипы Vita и React, чтобы узнать больше": "Click on the Vite and React logos to learn more",
+  "Нажмите на логотипы, чтобы узнать больше": "Click on the logos to learn more",
   "Ошибка, страница не найдена": "Error, page not found",
   "На главную": "Go main page",
-  "Шаблон": "Template"
+  "Шаблон": "Template",
+  "Переводы I18Next": "Translations I18Next",
+  "⚡\uFE0F Технологический стек": "⚡\uFE0F Technological stack",
+  "\uD83D\uDD27 Инструменты разработки": "\uD83D\uDD27 Development Tools",
+  "Интеграция ESLint с TypeScript": "Integration of ESLint with TypeScript",
+  "Стилизация на SCSS": "Stylization on SCSS",
+  "Переведено на Язык": "Translated into English"
 }

@@ -1,4 +1,4 @@
-import { ISessionState } from '../types/ISessionState';
+import { SessionState } from '../types/SessionState';
 import { setSessionData } from '../sessionSlice';
 import { StorageKeyType } from '../../../../shared/types/LocalStorageKey';
 import { AppThunk } from '../../../../app/store/store';
@@ -37,7 +37,7 @@ export const initSession = (): AppThunk => (dispatch) => {
 
 	// Если сессия не найдена или устарела — создаём новую
 	const newSessionId = `session-${now}`;
-	const newSession: ISessionState = {
+	const newSession: SessionState = {
 		sessionId: newSessionId,
 		lastActivity: now,
 	};

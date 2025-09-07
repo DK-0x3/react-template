@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import ROUTES from '../../app/rout/routes';
+import ROUTES from '../../app/providers/router/routes';
 
 const NotFoundPage = () => {
 	const { t } = useTranslation();

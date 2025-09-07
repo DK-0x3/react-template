@@ -47,10 +47,6 @@ export default [
 				{
 					selector: 'interface',
 					format: ['PascalCase',],
-					custom: {
-						regex: '^I[A-Z]',
-						match: true,
-					},
 				},
 				{
 					selector: 'variable',
@@ -136,12 +132,7 @@ export default [
 			],
 			'no-param-reassign': 0,
 			'global-require': 0,
-			'i18next/no-literal-string': [
-				'error',
-				{
-					markupOnly: true,
-					ignoreAttribute: ['data-testid', 'to',],
-				},],
+			'i18next/no-literal-string': 'off',
 			'semi': ['error', 'always',],
 			'object-curly-spacing': ['error', 'always',],
 		},
