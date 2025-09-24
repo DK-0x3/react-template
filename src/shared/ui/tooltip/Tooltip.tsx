@@ -1,4 +1,4 @@
-import styles from './Tooltip.module.scss';
+import classNames from 'classnames';
 import {
 	CSSProperties,
 	FC,
@@ -9,8 +9,10 @@ import {
 	useRef,
 	useState,
 } from 'react';
+
 import Placement from '../drop-down-menu/types/Placement';
-import classNames from 'classnames';
+import styles from './Tooltip.module.scss';
+
 
 export interface TooltipProps {
     /** Контент тултипа */
