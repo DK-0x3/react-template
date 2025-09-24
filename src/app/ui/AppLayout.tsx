@@ -1,10 +1,9 @@
 import { Outlet } from 'react-router-dom';
 
-const Layout = () => {
+export const AppLayout = () => {
 	return (
 		<>
 			<Outlet/>
 		</>
 	);
 };
-export default Layout;

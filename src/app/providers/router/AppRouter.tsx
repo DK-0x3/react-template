@@ -1,13 +1,13 @@
+import { AppLayout } from '@app/ui/AppLayout';
+import MainPage from '@pages/main/MainPage';
+import NotFoundPage from '@pages/not-found/NotFoundPage';
+import ROUTES from '@shared/configs/routes';
 import { Route, Routes } from 'react-router-dom';
-import ROUTES from './routes';
-import Layout from '../../Layout';
-import MainPage from '../../../pages/main/MainPage';
-import NotFoundPage from '../../../pages/not-found/NotFoundPage';
 
 const AppRouter = () => {
 	return (
 		<Routes>
-			<Route path={ROUTES.HOME} element={<Layout/>}>
+			<Route path={ROUTES.HOME} element={<AppLayout/>}>
 				<Route index element={<MainPage/>}/>
 				<Route path={ROUTES.NOT_FOUND} element={<NotFoundPage/>}/>
 			</Route>

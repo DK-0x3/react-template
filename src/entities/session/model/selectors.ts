@@ -1,4 +1,4 @@
-import { RootState } from '../../../app/store/store';
+import { RootState } from '@shared/lib/store/types/RootState';
 
 export const getSessionId = (state: RootState) => state.session.sessionId;
 

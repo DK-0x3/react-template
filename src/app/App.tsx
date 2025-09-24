@@ -1,27 +1,28 @@
-import styles from './styles/App.module.scss';
+import './styles/globalVariables.scss';
+
+import store from '@app/providers/store/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
-import { ModalProvider } from '../shared/ui/modal/model/ModalContext';
-import { Modal } from '../shared/ui/modal/ui/Modal';
-import AppRouter from './providers/router/AppRouter';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import './styles/globalVariables.scss';
+
+import AppRouter from './providers/router/AppRouter';
+import styles from './styles/App.module.scss';
 
 const App = () => {
 	const queryClient = new QueryClient();
 
 	return (
-		<QueryClientProvider client={queryClient}>
-			<ModalProvider>
+		<Provider store={store}>
+			<QueryClientProvider client={queryClient}>
 				<BrowserRouter>
 					<div className={styles.App}>
 						<AppRouter/>
-						<Modal/>
 					</div>
 				</BrowserRouter>
-			</ModalProvider>
-			<Toaster position="top-center" />
-		</QueryClientProvider>
+				<Toaster position="top-center" />
+			</QueryClientProvider>
+		</Provider>
 	);
 };
 

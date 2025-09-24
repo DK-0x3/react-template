@@ -1,6 +1,7 @@
-import { setSessionData } from '../sessionSlice';
-import { StorageKeyType } from '../../../../shared/types/LocalStorageKey';
-import { AppThunk } from '../../../../app/store/store';
+import { AppThunk } from '@shared/lib/store/types/AppThunk';
+import { StorageKeyType } from '@shared/types/LocalStorageKey';
+
+import { setSessionData } from '../slice';
 
 export const updateLastActivity = (): AppThunk => (dispatch, getState) => {
 	const state = getState().session;
