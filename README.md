@@ -23,6 +23,12 @@ The template already includes routing, state management, localization, and ready
 - **SCSS modules**
 - **ESLint + TS ESLint + plugins**
 
+<p>
+  <a href="README_ESLINT.md">
+    <img src="https://img.shields.io/badge/ESLint_Config-Documentation-blue?style=for-the-badge&logo=eslint" alt="ESLint Config Documentation"/>
+  </a>
+</p>
+
 ---
 
 ## Ready-to-use Components

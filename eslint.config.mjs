@@ -7,6 +7,8 @@ import pluginImport from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import pluginOptimizeRegex from 'eslint-plugin-optimize-regex';
 import pluginReact from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactPerf from 'eslint-plugin-react-perf';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
@@ -27,6 +29,8 @@ export default [
 		plugins: {
 			'@typescript-eslint': tsEslint,
 			'react': pluginReact,
+			'react-hooks': reactHooks,
+			'react-perf': reactPerf,
 			'import': pluginImport,
 			'optimize-regex': pluginOptimizeRegex,
 			'i18next': i18next,
@@ -44,6 +48,8 @@ export default [
 			...pluginImport.configs.warnings.rules,
 			...i18next.configs.recommended.rules,
 			...boundaries.configs.recommended.rules,
+			...reactHooks.configs.recommended.rules,
+			...reactPerf.configs.recommended.rules,
 
 			// --- Code Style ---
 			'quotes': ['error', 'single'],
@@ -98,6 +104,12 @@ export default [
 				2,
 				{ namedComponents: 'arrow-function' },
 			],
+			'react-hooks/rules-of-hooks': 'error',
+			'react-hooks/exhaustive-deps': 'warn',
+			'react-perf/jsx-no-new-object-as-prop': 'warn',
+			'react-perf/jsx-no-new-array-as-prop': 'warn',
+			'react-perf/jsx-no-new-function-as-prop': 'warn',
+			'react-perf/jsx-no-jsx-as-prop': 'off',
 
 			// --- Import ---
 			'unused-imports/no-unused-imports': 'error',
@@ -132,32 +144,32 @@ export default [
 				{
 					default: 'disallow',
 					rules: [
-						// 📄 pages можно собирать только из widgets, features, entities, shared
+						// pages можно собирать только из widgets, features, entities, shared
 						{
 							from: 'pages',
 							allow: ['widgets', 'features', 'entities', 'shared', 'pages'],
 						},
-						// 🧩 widgets можно собирать из features, entities, shared
+						// widgets можно собирать из features, entities, shared
 						{
 							from: 'widgets',
 							allow: ['features', 'entities', 'shared', 'widgets'],
 						},
-						// ⚙️ features можно собирать из entities, shared
+						// features можно собирать из entities, shared
 						{
 							from: 'features',
 							allow: ['entities', 'shared', 'features'],
 						},
-						// 🏗 entities можно собирать только из shared
+						// entities можно собирать только из shared
 						{
 							from: 'entities',
 							allow: ['shared', 'entities'],
 						},
-						// 📦 shared может импортировать сам себя (внутри слоя)
+						// shared может импортировать сам себя (внутри слоя)
 						{
 							from: 'shared',
-							allow: ['shared', 'app'], // только если нужно пробросить хуки
+							allow: ['shared', 'app'], // ! только если нужно пробросить хуки
 						},
-						// 🚀 app — верхний уровень, может импортировать все
+						// app — верхний уровень, может импортировать все
 						{
 							from: 'app',
 							allow: ['pages', 'widgets', 'features', 'entities', 'shared', 'app'],
@@ -168,7 +180,7 @@ export default [
 			'boundaries/no-unknown': 'error',
 
 			// --- i18next ---
-			'i18next/no-literal-string': 'off',
+			'i18next/no-literal-string': 'warn',
 
 			// --- A11y ---
 			'jsx-a11y/control-has-associated-label': 'off',
