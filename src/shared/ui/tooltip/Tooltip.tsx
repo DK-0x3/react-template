@@ -13,7 +13,6 @@ import {
 import Placement from '../drop-down-menu/types/Placement';
 import styles from './Tooltip.module.scss';
 
-
 export interface TooltipProps {
     /** Контент тултипа */
     content: ReactNode;
@@ -29,10 +28,12 @@ export interface TooltipProps {
     style?: CSSProperties;
     /** Отступ от родителя */
     offset?: number;
+	/** Разрешить ли оставаться открытым при наведении на тултип */
+	interactive?: boolean;
 }
 
-const useIsoLayoutEffect =
-    typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+const useIsoLayoutEffect
+    = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 export const Tooltip: FC<TooltipProps> = ({
 	content,
@@ -85,7 +86,9 @@ export const Tooltip: FC<TooltipProps> = ({
 		top += window.scrollY;
 		left += window.scrollX;
 
-		const { innerWidth, innerHeight, scrollX, scrollY } = window;
+		const {
+			innerWidth, innerHeight, scrollX, scrollY
+		} = window;
 
 		if (left < scrollX) left = scrollX + 5;
 		if (top < scrollY) top = scrollY + 5;
@@ -97,12 +100,16 @@ export const Tooltip: FC<TooltipProps> = ({
 			top = scrollY + innerHeight - tooltipRect.height - 5;
 		}
 
-		setCoords({ top, left });
+		setCoords({
+			top,
+			left
+		});
 	};
 
 	// показать с задержкой
 	const show = () => {
 		if (showTimerRef.current) window.clearTimeout(showTimerRef.current);
+
 		showTimerRef.current = window.setTimeout(() => {
 			setVisible(true);
 		}, delay);
@@ -111,6 +118,7 @@ export const Tooltip: FC<TooltipProps> = ({
 	// скрыть
 	const hide = () => {
 		if (showTimerRef.current) window.clearTimeout(showTimerRef.current);
+
 		setVisible(false);
 	};
 
@@ -137,12 +145,16 @@ export const Tooltip: FC<TooltipProps> = ({
 			window.removeEventListener('resize', onScrollOrResize);
 			ro.disconnect();
 		};
-	}, [visible, placement, offset]);
+	}, [
+		visible,
+		placement,
+		offset
+	]);
 
 	// Переставлять при смене placement даже когда видно
 	useEffect(() => {
 		if (visible) updatePosition();
-	}, [placement]);
+	}, [placement, visible]);
 
 	return (
 		<>
@@ -157,7 +169,6 @@ export const Tooltip: FC<TooltipProps> = ({
 				{children}
 			</div>
 
-			{/* Всегда в DOM — переключаем только классами */}
 			<div
 				ref={tooltipRef}
 				role="tooltip"

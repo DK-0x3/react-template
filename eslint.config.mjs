@@ -57,33 +57,113 @@ export default [
 			'object-curly-spacing': ['error', 'always'],
 			'indent': [2, 'tab'],
 			'no-tabs': 'off',
+			'no-trailing-spaces': 'off',
+			'linebreak-style': 0,
+
+			// === ОБЪЕКТЫ ===
+			// Перенос строк в объектах с 3+ свойствами
+			'object-curly-newline': [
+				'error',
+				{
+					ObjectExpression: {
+						multiline: true,
+						minProperties: 3,
+						consistent: true
+					},
+					ObjectPattern: {
+						multiline: true,
+						minProperties: 3,
+						consistent: true
+					},
+					ImportDeclaration: {
+						multiline: true,
+						minProperties: 3,
+						consistent: true
+					},
+					ExportDeclaration: {
+						multiline: true,
+						minProperties: 3,
+						consistent: true
+					}
+				}
+			],
+			// Свойства объектов на новых строках
+			'object-property-newline': ['error', { allowAllPropertiesOnSameLine: false }],
+
+			// === МАССИВЫ ===
+			// Если 3+ элементов — каждый на новой строке
+			'array-element-newline': [
+				'error',
+				{
+					multiline: true,
+					minItems: 3
+				}
+			],
+			// Скобки массива на новых строках, если многострочный
+			'array-bracket-newline': ['error', { multiline: true }],
+
+			// === ИМПОРТЫ / ЭКСПОРТЫ ===
+			// Если много импортов — каждый на новой строке
+			'import/newline-after-import': ['error', { count: 1 }],
+
+			// === ЦЕПОЧКИ ВЫЗОВОВ ===
+			// Перенос строк в длинных цепочках (.map().filter().reduce())
+			'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
+
+			// === ОПЕРАТОРЫ ===
+			// Переносы строк до операторов
+			'operator-linebreak': ['error', 'before'],
+
+			// === ФУНКЦИИ ===
+			// Обязательные круглые скобки у аргументов стрелочных функций
+			'arrow-parens': ['error', 'always'],
+
+			// === ПРОЧЕЕ ===
+			// Ограничение длины строки
 			'max-len': [
 				'error',
-				{ code: 120, ignoreComments: true },
+				{
+					code: 120,
+					ignoreComments: true,
+					ignoreUrls: true
+				}
 			],
-			'no-trailing-spaces': 'off',
-			'arrow-parens': 'off',
-			'linebreak-style': 0,
+			// Без лишних пробелов
+			'no-multi-spaces': 'error',
 
 			// --- TypeScript ---
 			'@typescript-eslint/explicit-function-return-type': 'off',
 			'@typescript-eslint/no-require-imports': 'warn',
 			'@typescript-eslint/naming-convention': [
 				'error',
-				{ selector: 'interface', format: ['PascalCase'] },
+				{
+					selector: 'interface',
+					format: ['PascalCase'] 
+				},
 				{
 					selector: 'variable',
-					format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+					format: [
+						'camelCase',
+						'UPPER_CASE',
+						'PascalCase'
+					],
 					leadingUnderscore: 'allowDouble',
 					trailingUnderscore: 'allowDouble',
 				},
 				{
 					selector: 'function',
-					format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+					format: [
+						'camelCase',
+						'UPPER_CASE',
+						'PascalCase'
+					],
 					leadingUnderscore: 'allow',
 					trailingUnderscore: 'allow',
 				},
-				{ selector: 'class', format: ['PascalCase'] },
+				{
+					selector: 'class',
+					format: ['PascalCase'] 
+				},
 			],
 
 			// --- React ---
@@ -91,7 +171,14 @@ export default [
 			'react/no-deprecated': 'off',
 			'react/jsx-filename-extension': [
 				2,
-				{ extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+				{
+					extensions: [
+						'.js',
+						'.jsx',
+						'.ts',
+						'.tsx'
+					] 
+				},
 			],
 			'jsx-quotes': ['error', 'prefer-double'],
 			'react/require-default-props': 'off',
@@ -100,10 +187,7 @@ export default [
 			'react/jsx-props-no-spreading': 'off',
 			'react/jsx-indent': [2, 'tab'],
 			'react/jsx-indent-props': [2, 'tab'],
-			'react/function-component-definition': [
-				2,
-				{ namedComponents: 'arrow-function' },
-			],
+			'react/function-component-definition': [2, { namedComponents: 'arrow-function' },],
 			'react-hooks/rules-of-hooks': 'error',
 			'react-hooks/exhaustive-deps': 'warn',
 			'react-perf/jsx-no-new-object-as-prop': 'warn',
@@ -147,17 +231,32 @@ export default [
 						// pages можно собирать только из widgets, features, entities, shared
 						{
 							from: 'pages',
-							allow: ['widgets', 'features', 'entities', 'shared', 'pages'],
+							allow: [
+								'widgets',
+								'features',
+								'entities',
+								'shared',
+								'pages'
+							],
 						},
 						// widgets можно собирать из features, entities, shared
 						{
 							from: 'widgets',
-							allow: ['features', 'entities', 'shared', 'widgets'],
+							allow: [
+								'features',
+								'entities',
+								'shared',
+								'widgets'
+							],
 						},
 						// features можно собирать из entities, shared
 						{
 							from: 'features',
-							allow: ['entities', 'shared', 'features'],
+							allow: [
+								'entities',
+								'shared',
+								'features'
+							],
 						},
 						// entities можно собирать только из shared
 						{
@@ -172,7 +271,14 @@ export default [
 						// app — верхний уровень, может импортировать все
 						{
 							from: 'app',
-							allow: ['pages', 'widgets', 'features', 'entities', 'shared', 'app'],
+							allow: [
+								'pages',
+								'widgets',
+								'features',
+								'entities',
+								'shared',
+								'app'
+							],
 						},
 					],
 				},
@@ -207,7 +313,12 @@ export default [
 		settings: {
 			'import/resolver': {
 				node: {
-					extensions: ['.js', '.jsx', '.ts', '.tsx'],
+					extensions: [
+						'.js',
+						'.jsx',
+						'.ts',
+						'.tsx'
+					],
 				},
 				typescript: {
 					project: './tsconfig.json',
@@ -217,12 +328,30 @@ export default [
 				version: 'detect',
 			},
 			'boundaries/elements': [
-				{ type: 'app', pattern: 'src/app/*' },
-				{ type: 'pages', pattern: 'src/pages/*' },
-				{ type: 'widgets', pattern: 'src/widgets/*' },
-				{ type: 'features', pattern: 'src/features/*' },
-				{ type: 'entities', pattern: 'src/entities/*' },
-				{ type: 'shared', pattern: 'src/shared/*' },
+				{
+					type: 'app',
+					pattern: 'src/app/*' 
+				},
+				{
+					type: 'pages',
+					pattern: 'src/pages/*' 
+				},
+				{
+					type: 'widgets',
+					pattern: 'src/widgets/*' 
+				},
+				{
+					type: 'features',
+					pattern: 'src/features/*' 
+				},
+				{
+					type: 'entities',
+					pattern: 'src/entities/*' 
+				},
+				{
+					type: 'shared',
+					pattern: 'src/shared/*' 
+				},
 			]
 			// boundaries: {
 			// 	defaultIgnore: ['**/*.test.*', '**/*.stories.*'],
@@ -245,13 +374,21 @@ export default [
 				'error',
 				{
 					selector: 'variable',
-					format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+					format: [
+						'camelCase',
+						'UPPER_CASE',
+						'PascalCase'
+					],
 					leadingUnderscore: 'allowDouble',
 					trailingUnderscore: 'allowDouble',
 				},
 				{
 					selector: 'variable',
-					format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+					format: [
+						'camelCase',
+						'UPPER_CASE',
+						'PascalCase'
+					],
 					leadingUnderscore: 'allow',
 					trailingUnderscore: 'allow',
 				},

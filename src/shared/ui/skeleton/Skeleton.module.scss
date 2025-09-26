@@ -1,0 +1,14 @@
+.wrapper {
+    display: inline-block;
+    background-color: #e9ecf6;
+    animation: skeleton-loading 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: #e9ecf6;
+    }
+    100% {
+        background-color: #d0d4df;
+    }
+}

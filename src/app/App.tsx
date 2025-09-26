@@ -1,5 +1,3 @@
-import './styles/globalVariables.scss';
-
 import store from '@app/providers/store/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';

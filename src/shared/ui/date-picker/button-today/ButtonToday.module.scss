@@ -1,0 +1,10 @@
+@use "/src/app/styles/color" as color;
+
+.wrapper {
+    color: color.$blue-600;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: white;
+    outline: none;
+    border: none;
+}

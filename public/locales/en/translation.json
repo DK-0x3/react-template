@@ -5,9 +5,10 @@
   "На главную": "Go main page",
   "Шаблон": "Template",
   "Переводы I18Next": "Translations I18Next",
-  "⚡\uFE0F Технологический стек": "⚡\uFE0F Technological stack",
+  "Технологический стек": "Technological stack",
   "\uD83D\uDD27 Инструменты разработки": "\uD83D\uDD27 Development Tools",
   "Интеграция ESLint с TypeScript": "Integration of ESLint with TypeScript",
   "Стилизация на SCSS": "Stylization on SCSS",
-  "Переведено на Язык": "Translated into English"
+  "Переведено на Язык": "Translated into English",
+  "Описание проекта": "A basic template for quickly starting a new project with <strong>React 19</strong>, featuring <strong>TypeScript</strong> and <strong>Vite</strong>.<br/>The template already includes routing, state management, localization, and ready-to-use UI components."
 }

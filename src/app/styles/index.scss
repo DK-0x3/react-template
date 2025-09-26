@@ -1,16 +1,27 @@
+@use "/src/app/styles/colors" as colors;
+@import "src/app/styles/fonts.css";
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: white;
+  background-color: colors.$bg;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -22,19 +33,16 @@ body {
   min-height: 100vh;
 }
 
-a {
+:where(a) {
   font-weight: 500;
-  color: #646cff;
+  color: colors.$violet-350;
   text-decoration: none;
   cursor: pointer;
-}
-a:hover {
-  color: #535bf2;
-}
+  transition: all 0.2s;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  &:hover {
+    color: colors.$violet-250;
+  }
 }
 
 :where(button) {
@@ -46,45 +54,30 @@ h1 {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-:where(button:hover) {
-  border-color: #646cff;
-}
-:where(button:focus),
-:where(button:focus-visible) {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.25s;
+
+  :where(&:hover) {
+    border-color: #646cff;
+  }
 }
 
 :where(input, textarea) {
   width: 100%;
   padding: 0.6rem 0.9rem;
   border-radius: 0.5rem;
-  border: 2px solid #e2e8f0; /* gray-200 */
+  border: 2px solid colors.$gray-400;
   font-size: 0.95rem;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  background: white;
+  background: colors.$white;
+
+  :where(&:focus, &:focus) {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  }
 }
-:where(input:focus, textarea:focus) {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-}
+
 :where(textarea) {
   resize: vertical;
   min-height: 100px;
-}
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

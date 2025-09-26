@@ -1,12 +1,13 @@
+import classNames from 'classnames';
 import React, { useEffect, useId, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './DropDownListMenu.module.scss';
-import Placement from './types/Placement';
-import DropDownMenuItem from './types/DropDownMenuItem';
-import ChevronDown from './assets/ChevronDownIcon';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+
 import { useWindowSize } from '../../lib/hooks/useWindowSize';
+import ChevronDown from './assets/ChevronDownIcon';
+import styles from './DropDownListMenu.module.scss';
+import DropDownMenuItem from './types/DropDownMenuItem';
+import Placement from './types/Placement';
 
 /**
  * Свойства компонента DropdownMenu

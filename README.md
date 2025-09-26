@@ -53,7 +53,7 @@ The template already includes routing, state management, localization, and ready
 
 **`shared/`** — reusable resources: UI components, utilities, styles, constants, types, hooks.
 
-### Node.js - `v22.XX.X`
+### Node.js - `v22+`
 
 <img width="1666" height="1361" alt="image" src="https://github.com/user-attachments/assets/ecd40f7c-f767-4cb2-9b5e-138227fcc6a5" />
 
@@ -79,9 +79,11 @@ The template already includes routing, state management, localization, and ready
 ---
 
 ## Готовые компоненты
-- DropDownMenu  
-- Tooltip  
-- Modal
+### SmartIcon
+Универсальный компонент для рендеринга SVG-иконок из определенной директории (`/src/shared/assets/icons`)
+
+! Перед использованием необходимо сгенерировать коллекцию иконок в директории,
+для этого выполнить команду `npm run gen:icons`;
 
 ---
 
@@ -102,6 +104,6 @@ The template already includes routing, state management, localization, and ready
 
 ---
 
-### Node.js - `v22.XX.X`
+### Node.js - `v22+`
 
 <img width="1666" height="1362" alt="image" src="https://github.com/user-attachments/assets/58f9f1b8-1001-4ecf-bafa-53d4fc0cd90b" />

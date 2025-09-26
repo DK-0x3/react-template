@@ -1,12 +1,6 @@
+.Tooltip {}
 :where(.Tooltip) {
   position: absolute;
-  background: #2563eb;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 14px;
-  line-height: 1.4;
-  white-space: nowrap;
   z-index: 9999;
 
   /* анимация */
