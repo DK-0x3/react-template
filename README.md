@@ -28,16 +28,21 @@ The template already includes routing, state management, localization, and ready
 
 <p>
   <a href="README_ESLINT.md">
-    <img src="https://img.shields.io/badge/ESLint_Config-Documentation-blue?style=for-the-badge&logo=eslint" alt="ESLint Config Documentation"/>
+    <img src="https://img.shields.io/badge/ESLint_Config-README-blue?style=for-the-badge&logo=eslint" alt="ESLint Config Documentation"/>
   </a>
 </p>
 
 ---
 
 ## Ready-to-use Components
-- DropDownMenu  
-- Tooltip  
-- Modal
+<p>
+  <a href="README_UI.md">
+    <img
+      src="https://img.shields.io/badge/UI_Docs-README-blue?style=for-the-badge&logo=storybook"
+      alt="UI Components Documentation"
+    />
+  </a>
+</p>
 
 ---
 
@@ -79,14 +84,22 @@ The template already includes routing, state management, localization, and ready
 - **SCSS-модули**
 - **ESLint + TS ESLint + плагины**
 
+<p>
+  <a href="README_ESLINT.md">
+    <img src="https://img.shields.io/badge/ESLint_Config-README-blue?style=for-the-badge&logo=eslint" alt="ESLint Config Documentation"/>
+  </a>
+</p>
+
 ---
 
-## Готовые компоненты
-### SmartIcon
-Универсальный компонент для рендеринга SVG-иконок из определенной директории (`/src/shared/assets/icons`)
-
-! Перед использованием необходимо сгенерировать коллекцию иконок в директории,
-для этого выполнить команду `npm run gen:icons`;
+<p>
+  <a href="README_UI.md">
+    <img
+      src="https://img.shields.io/badge/UI_Документация-README-red?style=for-the-badge&logo=storybook"
+      alt="UI Components Documentation"
+    />
+  </a>
+</p>
 
 ---
 
