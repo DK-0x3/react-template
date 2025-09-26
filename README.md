@@ -1,4 +1,7 @@
-# React 19 + TypeScript + Vite Template
+<div style="display: flex; align-items: center; gap: 20px">
+    <img width="50" src="./public/logo.svg" alt="logo">
+    <h2>React Template</h2>
+</div>
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&style=for-the-badge)
 ![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white&style=for-the-badge)
