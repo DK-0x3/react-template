@@ -3,7 +3,6 @@
   position: absolute;
   z-index: 9999;
 
-  /* анимация */
   opacity: 0;
   visibility: hidden;
   transform: translateY(0) scale(0.96);
@@ -12,16 +11,20 @@
           transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
           visibility 180ms;
   will-change: transform, opacity;
-
-  /* чтобы не мешала курсору, пока скрыта */
-  pointer-events: none;
 }
 
 .TooltipShow {
   opacity: 1;
   visibility: visible;
   transform: translate(0, 0) scale(1);
-  pointer-events: none;
+  pointer-events: auto;
+
+  &.TooltipTop,
+  &.TooltipBottom,
+  &.TooltipLeft,
+  &.TooltipRight {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 .TooltipTop {
@@ -39,11 +42,4 @@
 .TooltipRight {
   transform-origin: left center;
   transform: translateX(-8px) scale(0.96);
-}
-
-.TooltipShow.TooltipTop,
-.TooltipShow.TooltipBottom,
-.TooltipShow.TooltipLeft,
-.TooltipShow.TooltipRight {
-  transform: translate(0, 0) scale(1);
 }

@@ -1,3 +1,4 @@
+@use "/src/app/styles/colors" as colors;
 @use "/src/app/styles/variables" as variables;
 
 .wrapper {
@@ -8,7 +9,7 @@
     margin-right: 10px;
     justify-content: space-between;
 
-        .logoAndTitle {
+    .logoAndTitle {
             display: flex;
             height: 100%;
             align-items: center;
@@ -19,9 +20,9 @@
             transition: color 0.4s ease;
 
             &:hover {
-                background: linear-gradient(90deg, #b76dc0, #4e22c9, #b76dc0);
-                background-size: 200% auto; /* градиент шире текста */
-                animation: gradient-move 2s linear infinite; /* бесконечный перелив */
+                background: linear-gradient(90deg, colors.$pink-200, colors.$violet-450, colors.$pink-200);
+                background-size: 200% auto;
+                animation: gradient-move 2s linear infinite;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -37,13 +38,12 @@
             }
         }
 
-        @keyframes gradient-move {
-            0% {
-                background-position: 0% center;
-            }
-            100% {
-                background-position: 200% center;
-            }
+    @keyframes gradient-move {
+        0% {
+            background-position: 0% center;
         }
-
+        100% {
+            background-position: 200% center;
+        }
+    }
 }

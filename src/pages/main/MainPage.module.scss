@@ -1,6 +1,13 @@
 @use "/src/app/styles/colors" as colors;
 @use "/src/app/styles/variables" as variables;
 
+.tooltip {
+  background-color: colors.$violet-450;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;

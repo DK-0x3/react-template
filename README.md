@@ -27,7 +27,7 @@ The template already includes routing, state management, localization, and ready
 - **ESLint + TS ESLint + plugins**
 
 <p>
-  <a href="README_ESLINT.md">
+  <a href="docs/README_ESLINT.md">
     <img src="https://img.shields.io/badge/ESLint_Config-README-blue?style=for-the-badge&logo=eslint" alt="ESLint Config Documentation"/>
   </a>
 </p>
@@ -36,7 +36,7 @@ The template already includes routing, state management, localization, and ready
 
 ## Ready-to-use Components
 <p>
-  <a href="README_UI.md">
+  <a href="docs/README_UI.md">
     <img
       src="https://img.shields.io/badge/UI_Docs-README-blue?style=for-the-badge&logo=storybook"
       alt="UI Components Documentation"
@@ -85,7 +85,7 @@ The template already includes routing, state management, localization, and ready
 - **ESLint + TS ESLint + плагины**
 
 <p>
-  <a href="README_ESLINT.md">
+  <a href="docs/README_ESLINT.md">
     <img src="https://img.shields.io/badge/ESLint_Config-README-blue?style=for-the-badge&logo=eslint" alt="ESLint Config Documentation"/>
   </a>
 </p>
@@ -93,7 +93,7 @@ The template already includes routing, state management, localization, and ready
 ---
 
 <p>
-  <a href="README_UI.md">
+  <a href="docs/README_UI.md">
     <img
       src="https://img.shields.io/badge/UI_Документация-README-red?style=for-the-badge&logo=storybook"
       alt="UI Components Documentation"

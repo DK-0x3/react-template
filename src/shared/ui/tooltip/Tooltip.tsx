@@ -1,3 +1,4 @@
+import { useTooltipPosition } from '@shared/ui/tooltip/hooks/useTooltipPosition';
 import classNames from 'classnames';
 import {
 	CSSProperties,
@@ -5,7 +6,6 @@ import {
 	ReactElement,
 	ReactNode,
 	useEffect,
-	useLayoutEffect,
 	useRef,
 	useState,
 } from 'react';
@@ -21,7 +21,9 @@ export interface TooltipProps {
     /** Позиция */
     placement?: Placement;
     /** Задержка появления в мс */
-    delay?: number;
+    showDelay?: number;
+	/** Задержка скрытия в мс */
+	hideDelay?: number;
     /** Кастомный класс */
     className?: string;
     /** Inline-стили тултипа */
@@ -32,129 +34,71 @@ export interface TooltipProps {
 	interactive?: boolean;
 }
 
-const useIsoLayoutEffect
-    = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
-
+/**
+ * Компонент всплывающей подсказки (Tooltip).
+ *
+ * Особенности:
+ * - Показывается при наведении мыши или фокусе на элементе-триггере
+ * - Поддерживает задержку появления (`delay`) и задержку скрытия (`hideDelay`)
+ * - Автоматически позиционируется относительно элемента-триггера
+ * - Учитывает границы экрана (не выходит за пределы viewport)
+ * - Опционально поддерживает "интерактивный" режим (`interactive`), при котором
+ *   тултип не скрывается при наведении курсора на сам тултип
+ *
+ * @example
+ * ```tsx
+ * <Tooltip content="Подсказка" placement="Bottom" delay={200} hideDelay={150}>
+ *   <button>Наведи на меня</button>
+ * </Tooltip>
+ * ```
+ * @returns {JSX.Element} Tooltip-обёртка с элементом-триггером и тултипом
+ */
 export const Tooltip: FC<TooltipProps> = ({
 	content,
 	children,
 	placement = 'Top',
-	delay = 150,
+	showDelay = 150,
+	hideDelay = 150,
 	className,
 	style,
 	offset = 8,
+	interactive = true,
 }) => {
 	const [visible, setVisible] = useState(false);
-	const [coords, setCoords] = useState<{ top: number; left: number }>({
-		top: 0,
-		left: 0,
-	});
+	
 	const showTimerRef = useRef<number | null>(null);
+	const hideTimerRef = useRef<number | null>(null);
 
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
 	const tooltipRef = useRef<HTMLDivElement | null>(null);
 
-	const updatePosition = () => {
-		if (!wrapperRef.current || !tooltipRef.current) return;
+	const coords = useTooltipPosition(wrapperRef, tooltipRef, placement, offset, visible);
 
-		const triggerRect = wrapperRef.current.getBoundingClientRect();
-		const tooltipRect = tooltipRef.current.getBoundingClientRect();
-
-		let top = 0;
-		let left = 0;
-
-		switch (placement) {
-		case 'Top':
-			top = triggerRect.top - tooltipRect.height - offset;
-			left = triggerRect.left + (triggerRect.width - tooltipRect.width) / 2;
-			break;
-		case 'Bottom':
-			top = triggerRect.bottom + offset;
-			left = triggerRect.left + (triggerRect.width - tooltipRect.width) / 2;
-			break;
-		case 'Left':
-			top = triggerRect.top + (triggerRect.height - tooltipRect.height) / 2;
-			left = triggerRect.left - tooltipRect.width - offset;
-			break;
-		case 'Right':
-			top = triggerRect.top + (triggerRect.height - tooltipRect.height) / 2;
-			left = triggerRect.right + offset;
-			break;
-		}
-
-		// учитываем прокрутку страницы
-		top += window.scrollY;
-		left += window.scrollX;
-
-		const {
-			innerWidth, innerHeight, scrollX, scrollY
-		} = window;
-
-		if (left < scrollX) left = scrollX + 5;
-		if (top < scrollY) top = scrollY + 5;
-
-		if (left + tooltipRect.width > scrollX + innerWidth) {
-			left = scrollX + innerWidth - tooltipRect.width - 5;
-		}
-		if (top + tooltipRect.height > scrollY + innerHeight) {
-			top = scrollY + innerHeight - tooltipRect.height - 5;
-		}
-
-		setCoords({
-			top,
-			left
-		});
-	};
-
-	// показать с задержкой
 	const show = () => {
 		if (showTimerRef.current) window.clearTimeout(showTimerRef.current);
+		if (hideTimerRef.current) window.clearTimeout(hideTimerRef.current);
 
 		showTimerRef.current = window.setTimeout(() => {
 			setVisible(true);
-		}, delay);
+		}, showDelay);
 	};
 
-	// скрыть
 	const hide = () => {
 		if (showTimerRef.current) window.clearTimeout(showTimerRef.current);
+		if (hideTimerRef.current) window.clearTimeout(hideTimerRef.current);
 
-		setVisible(false);
+		hideTimerRef.current = window.setTimeout(() => {
+			setVisible(false);
+		}, hideDelay);
 	};
 
-	// пересчитываем позицию при показе + на событиях страницы
-	useIsoLayoutEffect(() => {
-		if (!visible) return;
-
-		const onScrollOrResize = () => updatePosition();
-
-		// rAF — чтобы рассчитать уже после применения классов
-		const raf = requestAnimationFrame(updatePosition);
-
-		window.addEventListener('scroll', onScrollOrResize, true);
-		window.addEventListener('resize', onScrollOrResize);
-
-		// подстроиться под изменение размеров контента
-		const ro = new ResizeObserver(() => updatePosition());
-		if (tooltipRef.current) ro.observe(tooltipRef.current);
-		if (wrapperRef.current) ro.observe(wrapperRef.current);
-
-		return () => {
-			cancelAnimationFrame(raf);
-			window.removeEventListener('scroll', onScrollOrResize, true);
-			window.removeEventListener('resize', onScrollOrResize);
-			ro.disconnect();
-		};
-	}, [
-		visible,
-		placement,
-		offset
-	]);
-
-	// Переставлять при смене placement даже когда видно
+	// очистка таймеров при размонтировании
 	useEffect(() => {
-		if (visible) updatePosition();
-	}, [placement, visible]);
+		return () => {
+			if (showTimerRef.current) window.clearTimeout(showTimerRef.current);
+			if (hideTimerRef.current) window.clearTimeout(hideTimerRef.current);
+		};
+	}, []);
 
 	return (
 		<>
@@ -183,6 +127,14 @@ export const Tooltip: FC<TooltipProps> = ({
 					top: coords.top,
 					left: coords.left,
 					...style,
+				}}
+				onMouseEnter={() => {
+					if (interactive && hideTimerRef.current) {
+						window.clearTimeout(hideTimerRef.current);
+					}
+				}}
+				onMouseLeave={() => {
+					if (interactive) hide();
 				}}
 			>
 				{content}
