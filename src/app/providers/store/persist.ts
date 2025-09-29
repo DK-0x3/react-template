@@ -2,7 +2,7 @@ import { reducers } from '@app/providers/store/reducers';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-const persistConfig = {
+const persist = {
 	key: 'root',
 	version: 1,
 	storage,
@@ -10,4 +10,4 @@ const persistConfig = {
 	whitelist: [],
 };
 
-export const persistedReducer = persistReducer(persistConfig, reducers);
+export const persistedReducer = persistReducer(persist, reducers);
