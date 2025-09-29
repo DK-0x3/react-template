@@ -18,7 +18,7 @@ const Badges: BadgeProps[] = [
 		link: 'https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html',
 	},
 	{
-		title: 'Redux Toolkit',
+		title: 'Redux Toolkit + Persist',
 		link: 'https://redux-toolkit.js.org/',
 	},
 	{

@@ -38,7 +38,7 @@ The template already includes routing, state management, localization, and ready
 <p>
   <a href="docs/README_UI.md">
     <img
-      src="https://img.shields.io/badge/UI_Docs-README-blue?style=for-the-badge&logo=storybook"
+      src="https://img.shields.io/badge/UI_Docs-README-red?style=for-the-badge&logo=storybook"
       alt="UI Components Documentation"
     />
   </a>
@@ -63,7 +63,7 @@ The template already includes routing, state management, localization, and ready
 
 ### Node.js - `v22+`
 
-<img width="1666" height="1361" alt="image" src="https://github.com/user-attachments/assets/ecd40f7c-f767-4cb2-9b5e-138227fcc6a5" />
+![mainPage-en.png](docs/assets/mainPage-en.png)
 
 ---
 # RU Version
@@ -122,4 +122,4 @@ The template already includes routing, state management, localization, and ready
 
 ### Node.js - `v22+`
 
-<img width="1666" height="1362" alt="image" src="https://github.com/user-attachments/assets/58f9f1b8-1001-4ecf-bafa-53d4fc0cd90b" />
+![mainPage-ru.png](docs/assets/mainPage-ru.png)
