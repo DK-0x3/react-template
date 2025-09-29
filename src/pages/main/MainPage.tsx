@@ -9,7 +9,7 @@ const MainPage = () => {
 		<div className={styles.wrapper}>
 			<div>
 				<a href="https://vite.dev" target="_blank" rel="noreferrer">
-					<SmartIcon iconName="vite" className={styles.Logo}/>
+					<SmartIcon iconName="vite" className={classNames(styles.Logo, styles.Vite)}/>
 				</a>
 				<a href="https://react.dev" target="_blank" rel="noreferrer">
 					<SmartIcon iconName="react" className={classNames(styles.Logo, styles.React)}/>
