@@ -1,4 +1,4 @@
-@use "/src/app/styles/color" as color;
+@use "/src/app/styles/colors" as colors;
 
 .wrapper {
     display: inline-block;
@@ -10,15 +10,15 @@
 :where(.datePicker) {
     width: 100%;
     padding: 10px 16px;
-    border: 1px solid #ccc;
+    border: 1px solid colors.$gray-10;
     border-radius: 6px;
     font-size: 14px;
     outline: none;
     background-color: transparent;
-    color: black;
+    color: colors.$white;
 
     &:focus {
-        border-color: #007bff;
+        border-color: colors.$violet-350
     }
 
     &:disabled {
@@ -29,7 +29,7 @@
 }
 
 .todayButton {
-    color: color.$blue-600;
+    color: colors.$violet-450;
     cursor: pointer;
     font-size: 14px;
 }

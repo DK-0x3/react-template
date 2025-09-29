@@ -1,4 +1,4 @@
-@use "/src/app/styles/color" as color;
+@use "/src/app/styles/colors" as colors;
 
 // Весь контенер с календарем
 .react-datepicker {
@@ -16,7 +16,7 @@
 
     // Выделение сегодняшнего дня
     .react-datepicker__day--today {
-        border: 2px solid #0075FF;
+        border: 2px solid colors.$violet-350;
         border-radius: 0.5em;
     }
 }
@@ -41,4 +41,17 @@
     text-align: center;
     font-weight: 600;
     box-sizing: border-box;
+}
+
+// Выбранные день в календаре
+.react-datepicker__day--selected {
+    background-color: colors.$violet-250;
+    color: colors.$white;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: colors.$violet-150;
+}
+.react-datepicker__day--keyboard-selected:not([aria-disabled=true]):hover {
+    background-color: colors.$violet-150;
 }

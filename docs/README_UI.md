@@ -47,3 +47,9 @@
 позиционирования и управления клавиатурой.
 <br/>
 ![dropDownMenu.png](assets/dropDownMenu.png)
+
+### [DatePickerApp](../src/shared/ui/date-picker/DatePickerApp.tsx)
+Поле ввода даты (обертка над react-datepicker)
+<br/>
+![datePickerApp.png](assets/datePickerApp.png)
+

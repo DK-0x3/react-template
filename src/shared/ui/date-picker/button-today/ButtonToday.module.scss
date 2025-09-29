@@ -1,7 +1,7 @@
-@use "/src/app/styles/color" as color;
+@use "/src/app/styles/colors" as colors;
 
 .wrapper {
-    color: color.$blue-600;
+    color: colors.$violet-450;
     cursor: pointer;
     font-size: 14px;
     background-color: white;

@@ -2,12 +2,12 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePickerApp.scss';
 
+import { SmartIcon } from '@shared/ui/smart-icon/SmartIcon';
 import classNames from 'classnames';
 import { ru } from 'date-fns/locale';
 import { useState } from 'react';
 import DatePicker, { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
 
-import CalendarSvg from '@shared/assets/icons/calendar.svg';
 import { ButtonToday } from './button-today/ButtonToday';
 import styles from './DatePickerApp.module.scss';
 
@@ -65,7 +65,7 @@ export const DatePickerApp = ({
 					<input className={classNames(styles.datePicker, inputClassName)} />
 				}
 				showIcon
-				icon={<CalendarSvg/>}
+				icon={<SmartIcon iconName="calendar"/>}
 				{...propsPicker}
 			/>
 		</div>
