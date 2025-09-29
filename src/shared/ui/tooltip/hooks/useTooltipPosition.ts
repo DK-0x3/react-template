@@ -77,7 +77,7 @@ export function useTooltipPosition(
 		left += window.scrollX;
 
 		const {
-			innerWidth, innerHeight, scrollX, scrollY 
+			innerWidth, innerHeight, scrollX, scrollY
 		} = window;
 
 		if (left < scrollX) left = scrollX + 5;
@@ -92,7 +92,7 @@ export function useTooltipPosition(
 
 		setCoords({
 			top,
-			left 
+			left
 		});
 	};
 

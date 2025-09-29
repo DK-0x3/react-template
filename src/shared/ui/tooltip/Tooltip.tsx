@@ -113,7 +113,7 @@ export const Tooltip: FC<TooltipProps> = ({
 				{children}
 			</div>
 
-			<div
+			{visible && <div
 				ref={tooltipRef}
 				role="tooltip"
 				aria-hidden={!visible}
@@ -138,7 +138,7 @@ export const Tooltip: FC<TooltipProps> = ({
 				}}
 			>
 				{content}
-			</div>
+			</div>}
 		</>
 	);
 };
