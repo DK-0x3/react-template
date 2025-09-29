@@ -1,11 +1,10 @@
 @use "/src/app/styles/colors" as colors;
 @use "/src/app/styles/variables" as variables;
 
-.tooltip {
-  background-color: colors.$violet-450;
-  padding: 12px;
-  border-radius: 4px;
-  cursor: pointer;
+.smart {
+  //border: 1px solid red;
+  width: 400px;
+  height: 500px;
 }
 
 .wrapper {

@@ -1,14 +1,19 @@
-.wrapper {
+@use "/src/app/styles/colors" as colors;
+
+.inputWithAddon {}
+:where(.inputWithAddon) {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 2px solid colors.$pink-200;
+    border-radius: 8px;
     padding: 8px 12px;
-    background: #fff;
+    background: transparent;
     transition: border-color 0.2s ease;
     cursor: text;
+    max-height: 50px;
 
-    .input {
+    .input {}
+    :where(.input) {
         flex: 1;
         border: none;
         outline: none;
@@ -20,23 +25,14 @@
         }
     }
 
-    .addon {
+    .addon {}
+    :where(.addon) {
         display: flex;
         align-items: center;
         justify-content: center;
         color: #888;
         font-size: 16px;
+        height: 100%;
+        width: auto;
     }
-
-    .leftAddon {
-        margin-right: 8px;
-    }
-
-    .rightAddon {
-        margin-left: 8px;
-    }
-
-    //&:focus-within {
-    //    border-color: #0d47a1;
-    //}
 }

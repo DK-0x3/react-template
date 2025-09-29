@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import CloseModalButton from './close-modal-button/CloseModalButton';
-import styles from './NewModal.module.scss';
+import styles from './Modal.module.scss';
 
 interface INewModalProps {
 	active: boolean,
@@ -18,7 +18,7 @@ interface INewModalProps {
 export const portal = document.getElementById('portal');
 
 /** Компонент - модальное окно */
-export const NewModal = ({
+export const Modal = ({
 	active,
 	closeFunc,
 	contentClassName,

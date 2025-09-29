@@ -6,7 +6,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: white;
+  color: colors.$white;
   background-color: colors.$bg;
 
   font-synthesis: none;
@@ -52,7 +52,7 @@ body {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: colors.$gray-850;
   cursor: pointer;
   transition: all 0.25s;
 
@@ -70,11 +70,6 @@ body {
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   background: colors.$white;
-
-  :where(&:focus, &:focus) {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-  }
 }
 
 :where(textarea) {

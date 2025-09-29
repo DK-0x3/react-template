@@ -42,6 +42,10 @@ const Badges: BadgeProps[] = [
 		link: 'https://sass-lang.com/',
 	},
 	{
+		title: 'React Loading Skeleton',
+		link: 'https://github.com/dvtng/react-loading-skeleton',
+	},
+	{
 		title: 'ESLint',
 		link: 'https://eslint.org/docs/latest/',
 		tooltip: <EslintTooltip/>

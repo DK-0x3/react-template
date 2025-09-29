@@ -11,7 +11,9 @@ interface SmartImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 /**
  * Изображение которое масштабируется по меньшей стороне
  */
-export const SmartImage: React.FC<SmartImageProps> = ({ src, alt = '', className, ...rest }) => {
+export const SmartImage: React.FC<SmartImageProps> = ({
+	src, alt = 'img', className, ...rest
+}) => {
 	return (
 		<img
 			src={src}

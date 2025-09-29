@@ -1,11 +1,14 @@
 import cx from 'classnames';
-import { FC, InputHTMLAttributes, ReactNode, useRef } from 'react';
+import {
+	FC, InputHTMLAttributes, ReactNode, useRef 
+} from 'react';
 
 import styles from './InputWithAddon.module.scss';
 
 interface InputWithAddonProps extends InputHTMLAttributes<HTMLInputElement> {
     leftAddon?: ReactNode;
     rightAddon?: ReactNode;
+
     containerClassName?: string;
     inputClassName?: string;
     leftAddonClassName?: string;
@@ -33,7 +36,7 @@ export const InputWithAddon: FC<InputWithAddonProps> = (
 
 	return (
 		<div
-			className={cx(styles.wrapper, containerClassName)}
+			className={cx(styles.inputWithAddon, containerClassName)}
 			onClick={onClickWrapper}
 		>
 			{leftAddon && (

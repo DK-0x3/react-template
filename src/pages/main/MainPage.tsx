@@ -1,9 +1,38 @@
 
-import { Tooltip } from '@shared/ui/tooltip/Tooltip';
+
+
+import { DropDownMenu } from '@shared/ui/drop-down-menu/DropDownMenu';
+import DropDownMenuItem from '@shared/ui/drop-down-menu/types/DropDownMenuItem';
+import { useTranslation } from 'react-i18next';
 
 import styles from './MainPage.module.scss';
 
 const MainPage = () => {
+	const { t } = useTranslation();
+	
+	const CoinTimeZones: DropDownMenuItem<string>[] = [
+		{
+			value: '1',
+			label: '1',
+		},
+		{
+			value: '22',
+			label: '22',
+		},
+		{
+			value: '333',
+			label: '333',
+		},
+		{
+			value: '4444',
+			label: '4444',
+		},
+		{
+			value: '55555',
+			label: '55555',
+		},
+	];
+	
 	return (
 		<div className={styles.wrapper}>
 			{/*<div>*/}
@@ -20,18 +49,11 @@ const MainPage = () => {
 			
 			{/*<StackCard/>*/}
 			
-			<Tooltip
-				content={
-					<div className={styles.tooltip}>
-						Tooltip
-					</div>
-				}
-				showDelay={300}
-			>
-				<button>
-					Tooltip
-				</button>
-			</Tooltip>
+			<div className={styles.smart}>
+				<DropDownMenu items={CoinTimeZones}>
+
+				</DropDownMenu>
+			</div>
 
 			<a href="https://github.com/DK-0x3" className={styles.Copyright}>©DK-0x3</a>
 		</div>

@@ -1,4 +1,4 @@
-@use "/src/app/styles/color";
+@use "/src/app/styles/colors" as colors;
 
 .modal {
     height: 100vh;
@@ -17,7 +17,7 @@
 :where(.contentWrapper) {
     padding: 30px;
     border-radius: 12px;
-    background-color: color.$white;
+    background-color: colors.$white;
     position: relative;
     box-sizing: border-box;
 }
