@@ -4,6 +4,7 @@ import parser from '@typescript-eslint/parser';
 import boundaries from 'eslint-plugin-boundaries';
 import i18next from 'eslint-plugin-i18next';
 import pluginImport from 'eslint-plugin-import';
+import importTs from 'eslint-plugin-import-typescript';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import pluginOptimizeRegex from 'eslint-plugin-optimize-regex';
 import pluginReact from 'eslint-plugin-react';
@@ -38,6 +39,7 @@ export default [
 			'jsx-a11y': jsxA11y,
 			'simple-import-sort': simpleImportSort,
 			'boundaries': boundaries,
+			'import-typescript': importTs,
 		},
 		rules: {
 			// --- Base / Recommended ---
@@ -50,6 +52,8 @@ export default [
 			...boundaries.configs.recommended.rules,
 			...reactHooks.configs.recommended.rules,
 			...reactPerf.configs.recommended.rules,
+
+			'import-typescript/no-relative-parent-imports': ['error'],
 
 			// --- Code Style ---
 			'quotes': ['error', 'single'],
@@ -353,17 +357,6 @@ export default [
 					pattern: 'src/shared/*' 
 				},
 			]
-			// boundaries: {
-			// 	defaultIgnore: ['**/*.test.*', '**/*.stories.*'],
-			// 	elements: [
-			// 		{ type: 'app', pattern: 'src/app/*' },
-			// 		{ type: 'pages', pattern: 'src/pages/*' },
-			// 		{ type: 'widgets', pattern: 'src/widgets/*' },
-			// 		{ type: 'features', pattern: 'src/features/*' },
-			// 		{ type: 'entities', pattern: 'src/entities/*' },
-			// 		{ type: 'shared', pattern: 'src/shared/*' },
-			// 	],
-			// },
 		},
 	},
 	{
