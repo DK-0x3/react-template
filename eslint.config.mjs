@@ -53,8 +53,6 @@ export default [
 			...reactHooks.configs.recommended.rules,
 			...reactPerf.configs.recommended.rules,
 
-			'import-typescript/no-relative-parent-imports': ['error'],
-
 			// --- Code Style ---
 			'quotes': ['error', 'single'],
 			'semi': ['error', 'always'],
@@ -288,6 +286,7 @@ export default [
 				},
 			],
 			'boundaries/no-unknown': 'error',
+			'import-typescript/no-relative-parent-imports': ['error'],
 
 			// --- i18next ---
 			'i18next/no-literal-string': 'warn',

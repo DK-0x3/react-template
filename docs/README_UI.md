@@ -40,6 +40,7 @@
 </Modal>
 ```
 <br/>
+
 ![modal.png](assets/modal.png)
 
 ### [DropDownMenu](../src/shared/ui/drop-down-menu/DropDownMenu.tsx)
