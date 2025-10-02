@@ -1,3 +1,3 @@
-import store from '@app/providers/store/store';
+import store from '@app/store/store';
 
 export type AppDispatch = typeof store.dispatch;

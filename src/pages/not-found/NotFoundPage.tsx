@@ -1,4 +1,4 @@
-import ROUTES from '@shared/configs/routes';
+import ROUTES from '@shared/config/routes';
 import { useTranslation } from 'react-i18next';
 
 import styles from './NotFoundPage.module.scss';

@@ -1,7 +1,7 @@
 import { AppLayout } from '@app/ui/AppLayout';
 import MainPage from '@pages/main/MainPage';
 import NotFoundPage from '@pages/not-found/NotFoundPage';
-import ROUTES from '@shared/configs/routes';
+import ROUTES from '@shared/config/routes';
 import { Route, Routes } from 'react-router-dom';
 
 const AppRouter = () => {

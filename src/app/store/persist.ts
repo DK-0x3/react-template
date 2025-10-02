@@ -1,4 +1,4 @@
-import { reducers } from '@app/providers/store/reducers';
+import { reducers } from '@app/store/reducers';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 

@@ -1,4 +1,4 @@
-import i18n from '@shared/configs/i18next';
+import i18n from '@shared/config/i18next';
 import { SmartIcon } from '@shared/ui/smart-icon/SmartIcon';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';

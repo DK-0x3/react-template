@@ -1,24 +1,19 @@
-import store, { persistor } from '@app/providers/store/store';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from '@app/providers/queryClient';
+import store, { persistor } from '@app/store/store';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import AppRouter from './providers/router/AppRouter';
-import styles from './styles/App.module.scss';
-
-const App = () => {
-	const queryClient = new QueryClient();
-
+export const AppProviders = ({ children }: { children: ReactNode }) => {
 	return (
 		<Provider store={store}>
-			<PersistGate persistor={persistor}>
+			<PersistGate persistor={persistor} loading={<div>Loading...</div>}>
 				<QueryClientProvider client={queryClient}>
 					<BrowserRouter>
-						<div className={styles.App}>
-							<AppRouter/>
-						</div>
+						{children}
 					</BrowserRouter>
 					<Toaster position="top-center" />
 				</QueryClientProvider>
@@ -26,5 +21,3 @@ const App = () => {
 		</Provider>
 	);
 };
-
-export default App;

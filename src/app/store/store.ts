@@ -1,4 +1,4 @@
-import { persistedReducer } from '@app/providers/store/persist';
+import { persistedReducer } from '@app/store/persist';
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
 
