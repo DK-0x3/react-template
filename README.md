@@ -49,17 +49,23 @@ The template already includes routing, state management, localization, and ready
 ## Architecture
 ### The project is built using the **Feature-Sliced Design (FSD)** methodology with an adapted structure:
 
-**`app/`** — entry point, application initialization (routing, store, providers, configs).
+[![App](https://img.shields.io/badge/App-0A66C2?style=for-the-badge)](src/app/README.md) 
+— entry point, application initialization (routing, store, providers, configs).
 
-**`pages/`** — pages (routes), assemble the UI from `widgets`, `features`, and `entities`.
+[![Pages](https://img.shields.io/badge/Pages-0A66C2?style=for-the-badge)](src/pages/README.md) 
+— pages (routes), assemble the UI from `widgets`, `features`, and `entities`.
 
-**`widgets/`** — large UI blocks, composite interface elements (e.g., `Navbar`, `Sidebar`).
+[![Widgets](https://img.shields.io/badge/Widgets-0A66C2?style=for-the-badge)](src/widgets/README.md) 
+— large UI blocks, composite interface elements (e.g., `Navbar`, `Sidebar`).
 
-**`features/`** — user scenarios, complete features with logic and UI (e.g., login).
+[![Features](https://img.shields.io/badge/Features-0A66C2?style=for-the-badge)](src/features/README.md) 
+— user scenarios, complete features with logic and UI (e.g., login).
 
-**`entities/`** — business entities: data, slice, types, simple UI (e.g., `User`, `Product`, `Question`).
+[![Entities](https://img.shields.io/badge/Entities-0A66C2?style=for-the-badge)](src/entities/README.md) 
+— business entities: data, slice, types, simple UI (e.g., `User`, `Product`, `Question`).
 
-**`shared/`** — reusable resources: UI components, utilities, styles, constants, types, hooks.
+[![Shared](https://img.shields.io/badge/Shared-0A66C2?style=for-the-badge)](src/shared/README.md) 
+— reusable resources: UI components, utilities, styles, constants, types, hooks.
 
 ### Node.js - `v22+`
 
@@ -106,17 +112,24 @@ The template already includes routing, state management, localization, and ready
 ## Архитектура
 ### Проект построен по методологии Feature-Sliced Design (FSD) с адаптированной структурой:
 
-**`app/`** — точка входа, инициализация приложения (роутинг, стор, провайдеры, конфиги).
 
-**`pages/`** — страницы (роуты), собирают интерфейс из `widgets`, `features`, `entities`.
+[![App](https://img.shields.io/badge/App-0A66C2?style=for-the-badge)](src/app/README.md) 
+— точка входа, инициализация приложения (роутинг, стор, провайдеры, конфиги).
 
-**`widgets/`** — крупные UI-блоки, составные элементы интерфейса (например, `Navbar`, `Sidebar`).
+[![Pages](https://img.shields.io/badge/Pages-0A66C2?style=for-the-badge)](src/pages/README.md) 
+— страницы (роуты), собирают UI из `widgets`, `features` и `entities`.
 
-**`features/`** — пользовательские сценарии, завершённые функции с логикой и UI (например логин).
+[![Widgets](https://img.shields.io/badge/Widgets-0A66C2?style=for-the-badge)](src/widgets/README.md) 
+— крупные UI-блоки, составные элементы интерфейса (например, `Navbar`, `Sidebar`).
 
-**`entities/`** — бизнес-сущности: данные, slice, типы, простой UI (например, `User`, `Product`, `Question`).
+[![Features](https://img.shields.io/badge/Features-0A66C2?style=for-the-badge)](src/features/README.md) 
+— пользовательские сценарии, готовые фичи с логикой и UI (например, авторизация).
 
-**`shared/`** — переиспользуемые ресурсы: UI-компоненты, утилиты, стили, константы, типы, хуки.
+[![Entities](https://img.shields.io/badge/Entities-0A66C2?style=for-the-badge)](src/entities/README.md) 
+— бизнес-сущности: данные, slice, типы, простые UI-компоненты (например, `User`, `Product`, `Question`).
+
+[![Shared](https://img.shields.io/badge/Shared-0A66C2?style=for-the-badge)](src/shared/README.md) 
+— переиспользуемые ресурсы: UI-компоненты, утилиты, стили, константы, типы, хуки.
 
 ---
 
